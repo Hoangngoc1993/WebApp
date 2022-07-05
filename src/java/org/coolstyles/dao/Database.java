@@ -5,6 +5,9 @@
 package org.coolstyles.dao;
 
 import org.coolstyles.impl.CategoryDAOImpl;
+import org.coolstyles.impl.OrderDAOImpl;
+import org.coolstyles.impl.OrderDetailDAOImpl;
+import org.coolstyles.impl.ProductDAOImpl;
 import org.coolstyles.impl.UserDAOImpl;
 
 /**
@@ -22,5 +25,19 @@ public class Database extends DatabaseDAO {
     public CategoryDAO getCategoryDAO() {
         return new CategoryDAOImpl();
     }
-    
+
+    @Override
+    public ProductDAO getProductDAO() {
+        return new ProductDAOImpl();
+    }
+
+    @Override
+    public OrderDAO getOrderDAO() {
+        return new OrderDAOImpl();
+    }
+
+    @Override
+    public OrderDetailDAO getOrderDetailDAO() {
+        return new OrderDetailDAOImpl();
+    }
 }

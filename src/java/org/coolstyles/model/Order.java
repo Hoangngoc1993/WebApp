@@ -9,14 +9,27 @@ package org.coolstyles.model;
  * @author PC
  */
 public class Order {
+    
+    public static String PENDING_STATUS = "pending";
+    public static String FINISHED_STATUS = "finished";
+    public static int CODE_LENGHT = 8;
+    
     private int id;
     private String name;
     private String description;
+    private String status;
 
-    public Order(int id, String name, String description) {
+    public Order(int id, String name, String description, String status) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.status = status;
+    }
+
+    public Order(String name, String description, String status) {
+        this.name = name;
+        this.description = description;
+        this.status = status;
     }
 
     public int getId() {
@@ -42,6 +55,13 @@ public class Order {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
     
 }

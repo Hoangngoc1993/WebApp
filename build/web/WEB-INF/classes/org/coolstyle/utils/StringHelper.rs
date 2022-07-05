@@ -1,0 +1,1 @@
+org.coolstyles.utils.StringHelper

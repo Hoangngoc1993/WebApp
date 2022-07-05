@@ -9,21 +9,34 @@ package org.coolstyles.model;
  * @author PC
  */
 public class Product {
-    private int id;
-    private String name;
-    private String description;
-    private String image;
-    private double price;
-    private int category_id;
+    public int id;
+    public String name;
+    public String description;
+    public String image;
+    public double price;
+    public int categoryId;
+    public double oldPrice;
 
-    public Product(int id, String name, String description, String image, double price, int category_id) {
+    public Product(int id, String name, String description, String image, double price, int categoryId, double oldPrice) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.image = image;
         this.price = price;
-        this.category_id = category_id;
+        this.categoryId = categoryId;
+        this.oldPrice = oldPrice;
     }
+
+    public Product(String name, String description, String image, double price, int categoryId, double oldPrice) {
+        this.name = name;
+        this.description = description;
+        this.image = image;
+        this.price = price;
+        this.categoryId = categoryId;
+        this.oldPrice = oldPrice;
+    }
+    
+    
 
     public int getId() {
         return id;
@@ -65,13 +78,20 @@ public class Product {
         this.price = price;
     }
 
-    public int getCategory_id() {
-        return category_id;
+    public int getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory_id(int category_id) {
-        this.category_id = category_id;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
-    
-    
+
+    public double getOldPrice() {
+        return oldPrice;
+    }
+
+    public void setOldPrice(double oldPrice) {
+        this.oldPrice = oldPrice;
+    }
+       
 }

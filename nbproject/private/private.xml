@@ -3,10 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/WebApp/src/java/org/coolstyles/CRUDServlet.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/WebApp/src/java/org/coolstyles/impl/UserDAOImpl.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/WebApp/src/java/org/coolstyles/model/User.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/WebApp/src/java/org/coolstyle/db/MySQLDriver.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/WebApp/web/admin/index.jsp</file>
         </group>
     </open-files>
 </project-private>
