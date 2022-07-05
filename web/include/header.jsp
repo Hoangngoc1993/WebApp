@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- Top header  -->
         <div class="row top__header">
@@ -15,12 +16,22 @@
             <div class="col-md-1 top__header-user">
                 <i class="fa-solid fa-users user-icon"></i>
                 <div class="user__list">
-                    <div class="row">
-                        <a href="">Đăng nhập</a>
-                    </div>
-                    <div class="row">
-                        <a href="">Đăng ký</a>
-                    </div>
+                    <c:if test="${sessionScope.user != null}">
+                        <div class="row">
+                        <a href="">${sessionScope.user.username}</a>
+                        </div>
+                        <div class="row">
+                            <a href="LogoutServlet">Đăng xuất</a>
+                        </div>
+                    </c:if>
+                    <c:if test="${sessionScope.user == null}">
+                        <div class="row">
+                        <a href="LoginServlet">Đăng nhập</a>
+                        </div>
+                        <div class="row">
+                            <a href="RegisterServlet">Đăng ký</a>
+                        </div>
+                    </c:if>
                 </div>
             </div>
             <div class="col-md-1">
@@ -38,16 +49,15 @@
         <div class="row header" style="width: 100%;">
             <div class="col-md-1"></div>
             <div class="col-md-2 header__img">
-                <img src="./public/assets/img/fiona-logo.png" style="max-width: 90%;" alt="FIONA">
+                <img src="./public/assets/img/fiona-logo.png" style="max-width: 80%;" alt="FIONA">
             </div>
-            <div class="col-md-1"></div>
             <div class="col-md-1 header__item">Hàng mới</div>
             <div class="col-md-1 header__item">Nữ
                 <div class="header__item-female">
                     <div class="row">
                         <!-- Váy Đầm -->
                         <div class="col-md-4">
-                            <a href="" class="female__list-name">Váy Đầm</a> <br>
+                            <a href="CategoryServlet?id=1" class="female__list-name">Váy Đầm</a> <br>
                             <a href="" class="female__list-clothes">Đầm Xòe</a> <br>
                             <a href="" class="female__list-clothes">Đầm Suông</a> <br>
                             <a href="" class="female__list-clothes">Đầm Ôm</a> <br>
@@ -65,7 +75,7 @@
                         </div>
                         <!-- Sơ Mi Nữ -->
                         <div class="col-md-4">
-                            <a href="" class="female__list-name">Sơ Mi Nữ</a> <br>
+                            <a href="CategoryServlet?id=2" class="female__list-name">Sơ Mi Nữ</a> <br>
                             <a href="" class="female__list-clothes">Sơ Mi Croptop</a> <br>
                             <a href="" class="female__list-clothes">Sơ Mi Suông</a> <br>
                             <a href="" class="female__list-clothes">Sơ Mi Peplum</a> <br>
@@ -134,7 +144,7 @@
                 <div class="header__item-male">
                     <div class="row">
                         <div class="col-md-4">
-                            <a href="" class="male__list-name">Nỉ Nam</a> <br>
+                            <a href="CategoryServlet?id=3" class="male__list-name">Nỉ Nam</a> <br>
                         </div>
                         <div class="col-md-4">
                             <a href="" class="male__list-name">Cotton Nam</a> <br>
@@ -176,8 +186,19 @@
                 </div>
             </div>
             <div class="col-md-1 header__item">Tin tức</div>
-            <div class="col-md-1 header__search">
-                <i class="fa-solid fa-magnifying-glass"></i>
+            <!-- Search -->
+            <div class="col-md-3 header__search" style="padding-top: 20px;">
+                <form action="ProductSearchServlet" method="GET">
+                    <div class="row header__search-tab">
+                        <div class="col-md-11" style="padding-right: 0;">
+                            <input type="text" name="key" class="header__search-input" placeholder=" Tìm kiếm">
+                        </div>
+                        <div class="col-md-1" style="padding-left: 0;">
+                            <button class="header__search-submit" style="height: 100%;">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="col-md-1"></div>
         </div>

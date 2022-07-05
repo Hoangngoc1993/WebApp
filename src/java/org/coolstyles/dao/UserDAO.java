@@ -14,11 +14,13 @@ import org.coolstyles.model.User;
 public interface UserDAO {
     public boolean insert(User user);
     public boolean update(User user);
-    public boolean delete(User user);
+    public boolean delete(int id);
     
     public List<User> all();
     public User find(int id);
     public List<User> findByProperty(String column, Object value);
     
+    public boolean register(String username, String password);
+    public User login(String username, String password);
 }
 

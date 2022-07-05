@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class MySQLDriver {
     private final String DB_URL = "jdbc:mysql://localhost:3306/fshop";
     private final String USER = "root";
-    private final String PASS = "root";
+    private final String PASS = "";
     
     private static MySQLDriver instance;
     

@@ -17,6 +17,9 @@ images = [
     },
     {
         link: './public/assets/img/poster/img3.jpg'
+    },
+    {
+        link: './public/assets/img/poster/fiona-04.jpg'
     }
 ]
 

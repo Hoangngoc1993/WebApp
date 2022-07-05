@@ -147,7 +147,7 @@
                         Mã số Doanh Nghiệp: 0109249725
                     </div>
                     <div class="row main-footer__description">
-                        Email:bhonline.fiona@gmail.com
+                        Email: bhonline.fiona@gmail.com
                     </div>
                 </div>
                 <div class="col-md-2"></div>

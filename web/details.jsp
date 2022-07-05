@@ -23,20 +23,20 @@
             <%@include file="./include/header.jsp" %>
             
             <div class="row link_detail">
-            <div class="col-md-1"></div>
-            <div class="col-md-11">
-                <a href="">Trang chủ</a>
-                <i class="fa-solid fa-angle-right"></i>
-                <a href="">Đầm nữ đẹp</a>
-                <i class="fa-solid fa-angle-right"></i>
-                <a href="" style="color: rgb(255, 72, 0);">Đầm lead xòe sát nách, cổ tim lệch</a>
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+                    <a href="HomeServlet">Trang chủ</a>
+                    <i class="fa-solid fa-angle-right"></i>
+<!--                    <a href="">Đầm nữ đẹp</a>
+                    <i class="fa-solid fa-angle-right"></i>-->
+                    <a href="" style="color: rgb(255, 72, 0);">${product.name}</a>
+                </div>
             </div>
-        </div>
         <div class="row details__page">
             <div class="col-md-1"></div>
             <!-- Colum 1 -->
             <div class="col-md-5 main_picture">
-                <img src="./public/assets/img/detail/dam xoe - co trai tim 1.jpg" alt="">
+                <img src="${product.image}" alt="">
                 <div class="row detail__description">
                     ĐIỂM NỔI BẬT CỦA SẢN PHẨM: <br>
                     - Đầm thiết kế độc quyền tại thời trang FIONA. <br>
@@ -46,155 +46,95 @@
                     - Đầm dễ dàng mix match với các màu sắc phụ kiện giày, túi xách. <br>
                     - Mua hàng online mọi lúc, mọi nơi. Trải nghiệm trực tiếp tại các showroom chính hãng và đại lý. <br>
                 </div>
-                <img src="./public/assets/img/detail/dam xoe - co trai tim 2.jpg" alt="" style="width: 95%;">
+<!--                <img src="./public/assets/img/detail/dam xoe - co trai tim 2.jpg" alt="" style="width: 95%;">-->
             </div>
-            <!-- Colum 2 -->
-            <div class="col-md-5">
-                <div class="row description" style="font-size: 18px;">Đầm lead xòe sát nách, cổ tim lệch</div>
-                <div class="row" style="padding-bottom: 12px;">
-                    <div class="col-md-3 price__current">1.080.000</div>
-                    <div class="col-md-3 clothes__ID">Mã: L452004</div>
-                    <div class="col-md-6"></div>
-                </div>
-                <div class="row" style="padding-bottom: 12px;">
-                    <div class="col-md-3 price__old">1.350.000</div>
-                    <div class="col-md-1">Màu:</div>
-                    <div class="col-md-2"><div class="clothes__color">Be</div></div>
-                    <div class="col-md-6"></div>
-                </div>
-                <div class="row" style="padding-bottom: 12px;">
-                    <div class="col-md-3 price__discount">Giảm 270.000</div>
-                    <div class="col-md-9" style="display: inline-flex;">
-                        <div class="clothes__status">Tình trạng:</div>
-                        <div class="clothes__status-result">Còn hàng</div>
+                <!-- Colum 2 -->
+                <div class="col-md-5">
+                    <div class="row description" style="font-size: 18px;">${product.description}</div>
+                    <div class="row" style="padding-bottom: 12px;">
+                        <div class="col-md-3 price__current">${Math.round(product.price)}</div>
+                        <div class="col-md-3 price__old">${Math.round(product.oldPrice)}</div>
+                        <div class="col-md-6"></div>
                     </div>
-                </div>
-                <div class="row" style="padding-bottom: 12px;">
-                    <div class="col-md-3">Kích cỡ:</div>
-                    <div class="col-md-1 clothes__size">XL</div>
-                    <div class="col-md-1 clothes__size">L</div>
-                    <div class="col-md-1 clothes__size selected">M</div>
-                    <div class="col-md-1 clothes__size">S</div>
-                    <div class="col-md-5"></div>
-                </div>
-                <div class="row" style="padding-bottom: 15px;">
-                    <div class="col-md-3">Số lượng: </div>
-                    <div class="col-md-9">
-                        <button class="clothes__number-minus">-</button>
-                        <button class="clothes__number">0</button>
-                        <button class="clothes__number-plus">+</button>
+    <!--                <div class="row" style="padding-bottom: 12px;">
+                        <div class="col-md-3 price__old">${product.oldPrice}</div>
+                        <div class="col-md-1">Màu:</div>
+                        <div class="col-md-2"><div class="clothes__color">Be</div></div>
+                        <div class="col-md-6"></div>
+                    </div>-->
+                    <div class="row" style="padding-bottom: 12px;">
+                        <div class="col-md-3 price__discount">Giảm ${Math.round(product.oldPrice - product.price)}</div>
+                        <div class="col-md-9" style="display: inline-flex;">
+                            <div class="clothes__status">Tình trạng:</div>
+                            <div class="clothes__status-result">Còn hàng</div>
+                        </div>
                     </div>
-                </div>
-                <div class="row" style="padding-bottom: 15px;">
-                    <div class="col-md-4 detail__option-card">
-                        <a href="">Thêm giỏ hàng</a>
+                    <div class="row" style="padding-bottom: 12px;">
+                        <div class="col-md-3">Kích cỡ:</div>
+                        <div class="col-md-1 clothes__size">XL</div>
+                        <div class="col-md-1 clothes__size">L</div>
+                        <div class="col-md-1 clothes__size selected">M</div>
+                        <div class="col-md-1 clothes__size">S</div>
+                        <div class="col-md-5"></div>
                     </div>
-                    <div class="col-md-4 detail__option-buy">
-                        <a href="">Mua ngay</a>
-                    </div>
-                    <div class="col-md-4"></div>
-                </div>
-                <div class="row detail__note">
-                    <div class="col-md-1"><i class="fa-solid fa-check"></i></div>
-                    <div class="col-md-11">Kiểm tra trước khi thanh toán</div>
-                </div>
-                <div class="row detail__note">
-                    <div class="col-md-1"><i class="fa-solid fa-check"></i></div>
-                    <div class="col-md-11">1 đổi 1 trong 7 ngày với lỗi của nhà sản xuất</div>
-                </div>
-                <div class="row detail__note">
-                    <div class="col-md-1"><i class="fa-solid fa-check"></i></div>
-                    <div class="col-md-11">Nhiều ưu đãi hấp dẫn</div>
-                </div>
-                <div class="row detail__note">
-                    <div class="col-md-1"><i class="fa-solid fa-check"></i></div>
-                    <div class="col-md-11">Miễn phí giao hàng toàn quốc cho đơn trên 499K</div>
-                </div>
-                <img src="./public/assets/img/detail/dam xoe - co trai tim 3.jpg" alt="" style="width: 95%;">
-                <img src="./public/assets/img/detail/dam xoe - co trai tim - bang size.png" style="width: 80%; padding-top: 20px;" alt="">
-                <div class="row detail__description">
-                    LƯU Ý: <br>
-                    Các chị em hãy luôn chú ý các quy tắc sau để chiếc đầm xòe công sở yêu thích luôn bền đẹp: <br>
-                    + Lộn mặt trái khi giặt và phơi sản phẩm <br>
-                    + Giặt đầm nữ với xà phòng trung tính <br>
-                    + Không phơi trực tiếp dưới ánh nắng mặt trời <br>
-                    + Giặt máy ở chế độ nhẹ nhàng. Không sấy, phơi khô tự nhiên. <br>
-                </div>
-                <!-- <div class="row">
-                    <div class="col-md-6">
-                        <img src="./assets/img/detail/dam xoe - co trai tim 2.jpg" alt="" style="width: 95%;">
-                    </div>
-                    <div class="col-md-6">
-                        <img src="./assets/img/detail/dam xoe - co trai tim 3.jpg" alt="" style="width: 95%;">
-                    </div>
-                </div> -->
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-11 detail__description">
-                Sản phẩm được sản xuất tại:
-                Công ty trách nhiệm hữu hạn Thương mại & Dịch vụ KIM PHÚ,
-                số 86 Trần Duy Hưng, Phường Trung Hoà, Quận Cầu Giấy, Thành phố Hà Nội, Việt Nam <br>
-            </div>
-        </div>
-        <!-- customer care  -->
-        <div class="row customer__care">
-            <div class="col-md-3 customer__care-item">
-                <a href="" class="customer__care-link">
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2 customer__care-icon"><i class="fa-solid fa-truck"></i></div>
-                        <div class="col-md-8">
-                            <div class="customer__policy-title">
-                                Miễn phí giao hàng
+                    <div class="row" style="padding-bottom: 15px;">
+                        <form action="OrderServlet" method="post">
+                            <input type="hidden" name="productId" value="${product.id}">
+                            <input type="hidden" name="productName" value="${product.name}">
+                            <input type="hidden" name="price" value="${product.price}">
+                            <div class="col-md-6">Số lượng (bắt buộc): 
+                                <input type="text" class="clothes__number" name="amount" placeholder="0">
                             </div>
-                            <div class="customer__policy-description">Miễn phí với đơn hàng trên 499k</div>
-                        </div>
+<!--                            <div class="col-md-2">
+                                <button class="clothes__number-minus">-</button>
+                                <input type="text" class="clothes__number" name="amount" placeholder="0">
+                                    <button class="clothes__number-plus">+</button>
+                            </div>-->
+                            <div class="col-md-4" style="padding-top: 15px;">
+                                <button type="submit" class="detail__option-card">Thêm giỏ hàng</button>
+                            </div>    
+                        </form>
                     </div>
-                </a>
-            </div>
-            <div class="col-md-3 customer__care-item">
-                <a href="" class="customer__care-link">
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2 customer__care-icon"><i class="fa-solid fa-credit-card"></i></div>
-                        <div class="col-md-8">
-                            <div class="customer__policy-title">Thanh toán COD</div>
-                            <div class="customer__policy-description">Thanh toán khi nhận hàng (COD)</div>
-                        </div>
-                    </div> 
-                </a>
-            </div>
-            <div class="col-md-3 customer__care-item">
-                <a href="" class="customer__care-link">
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2 customer__care-icon"><i class="fa-solid fa-building-columns"></i></div>
-                        <div class="col-md-8">
-                            <div class="customer__policy-title">Khách hàng VIP</div>
-                            <div class="customer__policy-description">Ưu đãi dành cho khách hàng VIP</div>
-                        </div>
+                    <div class="row detail__note">
+                        <div class="col-md-1"><i class="fa-solid fa-check"></i></div>
+                        <div class="col-md-11">Kiểm tra trước khi thanh toán</div>
                     </div>
-                </a>
-            </div>
-            <div class="col-md-3 customer__care-item">
-                <a href="" class="customer__care-link">
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2 customer__care-icon"><i class="fa-solid fa-scissors"></i></div>
-                        <div class="col-md-8">
-                            <div class="customer__policy-title">Hỗ trợ bảo hành</div>
-                            <div class="customer__policy-description">Đổi và sửa tại cửa hàng FIONA</div>
-                        </div>
+                    <div class="row detail__note">
+                        <div class="col-md-1"><i class="fa-solid fa-check"></i></div>
+                        <div class="col-md-11">1 đổi 1 trong 7 ngày với lỗi của nhà sản xuất</div>
                     </div>
-                </a>
+                    <div class="row detail__note">
+                        <div class="col-md-1"><i class="fa-solid fa-check"></i></div>
+                        <div class="col-md-11">Nhiều ưu đãi hấp dẫn</div>
+                    </div>
+                    <div class="row detail__note">
+                        <div class="col-md-1"><i class="fa-solid fa-check"></i></div>
+                        <div class="col-md-11">Miễn phí giao hàng toàn quốc cho đơn trên 499K</div>
+                    </div>
+    <!--                <img src="./public/assets/img/detail/dam xoe - co trai tim 3.jpg" alt="" style="width: 95%;">-->
+                    <img src="./public/assets/img/detail/dam xoe - co trai tim - bang size.png" style="width: 80%; padding-top: 20px;" alt="">
+                    <div class="row detail__description">
+                        LƯU Ý: <br>
+                        Các chị em hãy luôn chú ý các quy tắc sau để chiếc đầm xòe công sở yêu thích luôn bền đẹp: <br>
+                        + Lộn mặt trái khi giặt và phơi sản phẩm <br>
+                        + Giặt đầm nữ với xà phòng trung tính <br>
+                        + Không phơi trực tiếp dưới ánh nắng mặt trời <br>
+                        + Giặt máy ở chế độ nhẹ nhàng. Không sấy, phơi khô tự nhiên. <br>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-11 detail__description">
+                    Sản phẩm được sản xuất tại:
+                    Công ty trách nhiệm hữu hạn Thương mại & Dịch vụ KIM PHÚ,
+                    số 86 Trần Duy Hưng, Phường Trung Hoà, Quận Cầu Giấy, Thành phố Hà Nội, Việt Nam <br>
+                </div>
+            </div>
             
-            <!<!-- Footer -->
-            <%@include file="./include/footer.jsp" %>
+        <!<!-- Footer -->
+        <%@include file="./include/footer.jsp" %>
         </div>
     </body>
 </html>

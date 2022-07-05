@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
         <meta charset='utf-8'>
@@ -20,6 +21,7 @@
         <div class="container-fluid">
             <!-- Header  -->
             <%@include file="./include/header.jsp" %>
+            <!--VIEW-->
             <!-- Image Poster -->
             <div class="row poster__wrapper">
                 <div class="col-md-12 poster">
@@ -42,10 +44,30 @@
             </div>
             <div class="row new-clothes">
                 <div class="row new-clothes-list">
-                    <!-- Hiển thị ảnh bằng JS -->
+                    <c:forEach items="${productList}" var="product">
+                        <div class="col-md-3 new-clothes__product" style="padding-bottom: 20px;">
+                            <a href="ProductDetailServlet?id=${product.id}" class="new-clothes__link">
+                                <img src="${product.image}" style="max-width: 100%;" alt="">
+                            </a>
+<!--                            <div class="row new-clothes__options">
+                                <a class="col-md-6 options-details" href="ProductDetailServlet?id=${product.id}">Xem chi tiết</a>
+                                <a class="col-md-6 options-buy-now" href="OrderServlet?id=${product.id}">Mua ngay</a>
+                            </div>-->
+                                <div class="new-clothes__sale-off">-${Math.round((product.oldPrice - product.price)/product.oldPrice*100)}%</div>
+                            <div class="new-clothes__new-info">MỚI</div>
+<!--                            <a href="" class="new-clothes__like-item">
+                                <i class="fa-regular fa-heart"></i>
+                            </a>-->
+                            <div class="new-clothes__info">${product.description}</div>
+                            <div class="row new-clothes__price">
+                                <div class="col-md-6 new-clothes__discount">${Math.round(product.price)}</div>
+                                <div class="col-md-6 new-clothes__old-price">${Math.round(product.oldPrice)}</div>
+                            </div>
+                        </div>
+                    </c:forEach>
                 </div>
-                <button class="new-clothes__prev"> <i class="fa-solid fa-arrow-left"></i> </button>
-                <button class="new-clothes__next"> <i class="fa-solid fa-arrow-right"></i> </button>
+<!--                <button class="new-clothes__prev"> <i class="fa-solid fa-arrow-left"></i> </button>
+                <button class="new-clothes__next"> <i class="fa-solid fa-arrow-right"></i> </button>-->
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -57,74 +79,30 @@
                 </div>
             </div>
             <!-- brand-stuff -->
-            <div class="row brand-stuff__list">
-                <div class="col-md-2"></div>
-                <div class="col-md-2 brand-stuff__clothes">
-                    <a href="" class="brand-stuff__link">
-                        <img src="./public/assets/img/product/dam lead.jpg" style="width: 100%;" alt="">
-                    </a>
-                    <div class="row brand-stuff__sale-off">
-                        <div class="col-md-6 brand-stuff__percent">-20%</div>
-                        <div class="col-md-6 brand-stuff__new">MỚI</div>
-                    </div>
-                    <a href="" class="brand-stuff__like-item">
-                        <i class="fa-regular fa-heart"></i>
-                    </a>
-                    <div class="row brand-stuff__options">
-                        <a class="col-md-6 options-details" href="">Xem chi tiết</a>
-                        <a class="col-md-6 options-buy-now" href="">Mua ngay</a>
-                    </div>
-                    <div class="brand-stuff__info">Đầm lead xòe sát nách, cổ tim lệch</div>
-                    <div class="row brand-stuff__price">
-                        <div class="col-md-6 brand-stuff__discount">1.080.000</div>
-                        <div class="col-md-6 brand-stuff__old-price">1.350.000</div>
-                    </div>
-                </div>
-                <div class="col-md-4 brand-stuff__main-clothes">
-                    <a href="" class="brand-stuff__main-link">
-                        <img src="./public/assets/img/product/dam maxi dang dai.jpg" style="width: 100%;" alt="">
-                    </a>
-                    <div class="brand-stuff__main-percent">-20%</div>
-                    <div class="brand-stuff__main-new">MỚI</div>
-                    <a href="" class="brand-stuff__main-like-item">
-                        <i class="fa-regular fa-heart"></i>
-                    </a>
-                    <div class="row brand-stuff__main-options">
-                        <a class="col-md-6 main-options-details" href="">Xem chi tiết</a>
-                        <a class="col-md-6 main-options-buy-now" href="">Mua ngay</a>
-                    </div>
-                    <div class="brand-stuff__main-info">Đầm dáng dài, đính hoa trang trí</div>
-                    <div class="row brand-stuff__price">
-                        <div class="col-md-6 brand-stuff__main-discount">600.000</div>
-                        <div class="col-md-6 brand-stuff__main-old-price">750.000</div>
-                    </div>
-                </div>
-                <div class="col-md-2 brand-stuff__clothes">
-                    <a href="" class="brand-stuff__link">
-                        <img src="./public/assets/img/product/so mi co kieu Duc.jpg" style="width: 100%;" alt="">
-                    </a>
-                    <div class="row brand-stuff__sale-off">
-                        <div class="col-md-6 brand-stuff__percent">-20%</div>
-                        <div class="col-md-6 brand-stuff__new">MỚI</div>
-                    </div>
-                    <a href="" class="brand-stuff__like-item">
-                        <i class="fa-regular fa-heart"></i>
-                    </a>
-                    <div class="row brand-stuff__options">
-                        <a class="col-md-6 options-details" href="">Xem chi tiết</a>
-                        <a class="col-md-6 options-buy-now" href="">Mua ngay</a>
-                    </div>
-                    <div class="brand-stuff__info">Áo sơ mi cổ kiểu Đức, nẹp áo dẹp nhăn trang trí</div>
-                    <div class="row brand-stuff__price">
-                        <div class="col-md-6 brand-stuff__discount">520.000</div>
-                        <div class="col-md-6 brand-stuff__old-price">650.000</div>
-                    </div>
-                </div>
-                <div class="col-md-2"></div>
-                <div class="brand-stuff__button">
-                    <button class="brand-stuff__prev"><i class="fa-solid fa-circle-arrow-left"></i></button>
-                    <button class="brand-stuff__next"><i class="fa-solid fa-circle-arrow-right"></i></i></i></button>
-                </div>
+            <div class="row">
+                <c:forEach items="${productList}" var="product">
+                    <c:if test="${product.price >= 1000000}">
+                        <div class="col-md-3 new-clothes__product" style="padding-bottom: 20px;">
+                            <a href="ProductDetailServlet?id=${product.id}" class="new-clothes__link">
+                                <img src="${product.image}" style="max-width: 100%;" alt="">
+                            </a>
+<!--                            <div class="row new-clothes__options">
+                                <a class="col-md-6 options-details" href="ProductDetailServlet?id=${product.id}">Xem chi tiết</a>
+                                <a class="col-md-6 options-buy-now" href="OrderServlet?id=${product.id}">Mua ngay</a>
+                            </div>-->
+                                <div class="new-clothes__sale-off">-${Math.round((product.oldPrice - product.price)/product.oldPrice*100)}%</div>
+                            <div class="new-clothes__new-info">MỚI</div>
+<!--                            <a href="" class="new-clothes__like-item">
+                                <i class="fa-regular fa-heart"></i>
+                            </a>-->
+                            <div class="new-clothes__info">${product.description}</div>
+                            <div class="row new-clothes__price">
+                                <div class="col-md-6 new-clothes__discount">${Math.round(product.price)}</div>
+                                <div class="col-md-6 new-clothes__old-price">${Math.round(product.oldPrice)}</div>
+                            </div>
+                        </div>
+                    </c:if>
+                </c:forEach>
             </div>
             <!-- center image  -->
             <div class="center__image">
@@ -168,6 +146,6 @@
             <%@include file="./include/footer.jsp" %>
         </div>
         <script src="./public/js/app.js"></script>
-        <script src="./public/js/app-clothes.js"></script>
+        <!--<script src="./public/js/app-clothes.js"></script>-->
     </body>
 </html>

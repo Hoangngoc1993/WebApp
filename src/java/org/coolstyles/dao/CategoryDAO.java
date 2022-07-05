@@ -5,17 +5,19 @@
 package org.coolstyles.dao;
 
 import java.util.List;
+import org.coolstyles.model.Category;
 
 /**
  *
  * @author Admin
  */
 public interface CategoryDAO {
-    public boolean insert(CategoryDAO category);
-    public boolean update(CategoryDAO category);
-    public boolean delete(CategoryDAO category);
+    public boolean insert(Category category);
+    public boolean update(Category category);
+    public boolean delete(int id);
     
-    public List<CategoryDAO> all();
-    public CategoryDAO find(int id);
-    public CategoryDAO findByProperty(String column, Object value);
+    public List<Category> all();
+    public Category find(int id);
+    public List<Category> findByProperty(String column, Object value);
+    public List<Category> findByCategoryID(int categoryId);
 }
